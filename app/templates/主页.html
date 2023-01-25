@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <!-- Required Meta Tags Always Come First -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Title -->
+    <title>生成图谱</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../static/img/logo1.png">
+
+    <!--  Meta tags -->
+    <meta name="keywords" content="知识图谱">
+    <meta name="description"
+        content="本站旨在提供方便快捷的知识图谱生成工具，主要功能有二：一是从文本中抽取出实体，以及实体之间的关系；二是利用记录实体-关系的文件生成知识图谱。">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="关于知识图谱生成器">
+    <meta property="og:type" content="article">
+    <meta property="og:description"
+        content="本站旨在提供方便快捷的知识图谱生成工具，主要功能有二：一是从文本中抽取出实体，以及实体之间的关系；二是利用记录实体-关系的文件生成知识图谱。">
+    <meta property="og:site_name" content="知识图谱生成器">
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.min.css">
+
+    <!-- CSS Template -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@bootcss/www.bootcss.com@1.0.3/dist/assets/css/theme.css">
+
+</head>
+
+<body>
+
+    {% include 'header.html' %}
+
+  
+<!-- Promo Section -->
+  <section class="duik-promo bg-primary">
+    <div class="container duik-promo-container">
+      <div class="d-flex position-relative mh-25rem pt-11 py-6">
+        <div class="flex-grow-1 align-self-center text-center">
+          <h1 class="text-white font-weight-light mb-3">关于 Bootstrap 中文网</h1>
+
+          
+        </div>
+      </div>
+    </div>
+
+    <!-- SVG BG -->
+    <svg class="position-absolute bottom-0 left-0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1920 323" enable-background="new 0 0 1920 323" xml:space="preserve">
+      <polygon fill="#ffffff" style="fill-opacity: .05;" points="-0.5,322.5 -0.5,121.5 658.3,212.3 "></polygon>
+      <polygon fill="#ffffff" style="fill-opacity: .1;" points="-2,323 1920,323 1920,-1 "></polygon>
+    </svg>
+    <!-- End SVG BG -->
+  </section>
+  <!-- End Promo Section -->
+
+<main>
+  <div class="container py-10">
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2 mb-11 mb-lg-4 pr-lg-6">
+        <h2>关于本站</h2>
+<p>本站旨在提供方便快捷的知识图谱生成工具，主要功能有二：<br>
+    一是从文本中抽取出实体，以及实体之间的关系；<br>
+    二是利用记录实体-关系的文件生成知识图谱。</p>
+<h2>我通过非关系数据库生成知识图谱，可以使用这个网站抽取实体吗？</h2>
+<p>当然可以！不过需要注意的是，本站提供的文件格式种类并不多，可能需要您使用其他工具进行转换。</p>
+<h2>我已经抽取出关系了，可以使用这个网站生成知识图谱吗？</h2>
+<p>当然可以！不过，我们建议您先下载本站提供的模板文件，保证您提交的文件符合网站需要的格式。</p>
+<h2>我还需要注意什么？</h2>
+<p>本站的抽取实体功能和生成知识图谱功能都是全自动且封装的，可能会出现错误，也只能支持较少的自定义。</p>
+
+      </div>
+      <!-- End Resolved -->      
+    </div>
+  </div>
+</main>
+
+{% include 'footer.html' %}
+
+<!-- JS Global Compulsory -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-migrate@3.4.0/dist/jquery-migrate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-unveil@1.3.2/jquery.unveil.js"></script>
+
+<!-- JS -->
+<script src="https://cdn.jsdelivr.net/npm/@bootcss/www.bootcss.com@1.0.3/dist/assets/js/main.js"></script>
+</html>

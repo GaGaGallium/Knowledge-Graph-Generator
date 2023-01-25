@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <!-- Required Meta Tags Always Come First -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Title -->
+    <title>注册页面</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../static/img/logo1.png">
+
+    <!--  Meta tags -->
+    <meta name="keywords" content="知识图谱">
+    <meta name="description"
+        content="本站旨在提供方便快捷的知识图谱生成工具，主要功能有二：一是从文本中抽取出实体，以及实体之间的关系；二是利用记录实体-关系的文件生成知识图谱。">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="关于知识图谱生成器">
+    <meta property="og:type" content="article">
+    <meta property="og:description"
+        content="本站旨在提供方便快捷的知识图谱生成工具，主要功能有二：一是从文本中抽取出实体，以及实体之间的关系；二是利用记录实体-关系的文件生成知识图谱。">
+    <meta property="og:site_name" content="知识图谱生成器">
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.min.css">
+
+    <!-- CSS Template -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@bootcss/www.bootcss.com@1.0.3/dist/assets/css/theme.css">
+
+</head>
+
+<body>
+
+    {% include 'header.html' %}
+
+    <!-- Promo Section -->
+    <section class="duik-promo bg-primary">
+        <div class="container duik-promo-container">
+            <div class="justify-content-center d-flex position-relative mh-25rem pt-11 py-6">
+                <div class="flex-grow-1 align-self-center text-center col-lg-8 mb-11">
+                    <h1 id="title" class="text-white font-weight-bold mb-0 mt-3">注册账号</h1>
+                    <form method="post" id="survey-form" action=''>
+                        <div class="row">
+                            <label class="text-white font-weight-bold mb-0 mt-3" for="name" id="name-label">昵称</label>
+                            <input class="form-control" id="name" name="name" type="text" placeholder="输入昵称" required />
+                        </div>
+                        <div class="row">
+                            <label class="text-white font-weight-bold mb-0 mt-3" for="email" id="email-label">邮箱</label>
+                            <input class="form-control" id="email" name="email" type="email" placeholder="输入邮箱" />
+                        </div>
+                        <div class="row">
+                            <label class="text-white font-weight-bold mb-0 mt-3" for="password"
+                                id="password-label">密码</label>
+                            <input class="form-control password" id="password" name="password" type="password"
+                                placeholder="输入密码" required />
+                        </div>
+                        <div class="row">
+                            <label class="text-white font-weight-bold mb-0 mt-3" for="re-password"
+                                id="re-password-label">确认密码&nbsp;&nbsp;&nbsp;&nbsp;</label><span id="tishi" class="font-weight-bold mb-0 mt-3"></span>
+                            <input class="form-control password" id="re-password" name="re-password" type="password"
+                                placeholder="确认密码" required />
+                        </div>
+                        <button class="btn btn-block btn-success mt-6" id="submit" type="submit"
+                            onclick="{{warning}}">提交</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- SVG BG -->
+        <svg class="position-absolute bottom-0 left-0" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1920 323"
+            enable-background="new 0 0 1920 323" xml:space="preserve">
+            <polygon fill="#ffffff" style="fill-opacity: .05;" points="-0.5,322.5 -0.5,121.5 658.3,212.3 "></polygon>
+            <polygon fill="#ffffff" style="fill-opacity: .1;" points="-2,323 1920,323 1920,-1 "></polygon>
+        </svg>
+        <!-- End SVG BG -->
+    </section>
+    <!-- End Promo Section -->
+
+    {% include 'footer.html' %}
+
+    <!-- JS Global Compulsory -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-migrate@3.4.0/dist/jquery-migrate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-unveil@1.3.2/jquery.unveil.js"></script>
+
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@bootcss/www.bootcss.com@1.0.3/dist/assets/js/main.js"></script>
+    <script src="/static/js/jquery-3.6.1.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.password').blur(function () {
+                if ($('#password').val() == $('#re-password').val()) {
+                    $("#tishi").html("<font color='green'>    两次输入密码一致</font>");
+                    $("#submit").prop("disabled", false);
+                } else {
+                    $("#tishi").html("<font color='red'>    两次输入密码不一致</font>");
+                    $("#submit").prop("disabled", true);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

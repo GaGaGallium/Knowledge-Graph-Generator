@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <!-- Required Meta Tags Always Come First -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Title -->
+    <title>生成图谱</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../static/img/logo1.png">
+
+    <!--  Meta tags -->
+    <meta name="keywords" content="知识图谱">
+    <meta name="description" content="本站旨在提供方便快捷的知识图谱生成工具，主要功能有二：一是从文本中抽取出实体，以及实体之间的关系；二是利用记录实体-关系的文件生成知识图谱。">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="关于知识图谱生成器">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="本站旨在提供方便快捷的知识图谱生成工具，主要功能有二：一是从文本中抽取出实体，以及实体之间的关系；二是利用记录实体-关系的文件生成知识图谱。">
+    <meta property="og:site_name" content="知识图谱生成器">
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.min.css">
+
+    <!-- CSS Template -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@bootcss/www.bootcss.com@1.0.3/dist/assets/css/theme.css">
+
+</head>
+
+<body>
+
+    {% include 'header.html' %}
+    <div style="height:60px;"><!-- 我是 Header 占位 --></div>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Promo Section -->
+            <section class="duik-promo bg-primary col-lg-3">
+                <div class="container duik-promo-container">
+                    <div class="justify-content-center d-flex position-relative mh-25rem mt-3">
+                        <div class="flex-grow-1 align-self-center mb-5">
+                            <h1 id="title" class="text-center text-white font-weight-bold mb-0">参数设置</h1>
+                            <form method="post" id="survey-form" action='' enctype="multipart/form-data">
+                                <div class="row border border-secondary rounded-lg mt-3 p-3">
+                                    <label class="text-white font-weight-bold" for="file" id="file-label">上传文件</label>
+                                    <input class="form-control" id="file" name="file" type="file" placeholder="请上传csv文件"
+                                        accept="text/csv" required />
+                                    <a class="text-white font-weight-bold mt-3" href="../static/uploads/生成结果.html"
+                                        download="生成结果.html">文件下载</a>
+                                </div>
+                                <div class="panel-group" id="accordion">
+                                    <div class="row border border-secondary rounded-lg mt-3 p-3">
+                                        <a class="text-white font-weight-bold" data-toggle="collapse"
+                                            data-parent="#accordion" href="#collapseOne" aria-expanded="false"
+                                            aria-controls="collapseOne">
+                                            节点设置
+                                        </a>
+                                        <div id="collapseOne" class="collapse in">
+                                            <div class="row">
+                                                <label class="text-white font-weight-bold mt-3 px-3" for="node_size"
+                                                    id="node_size_label">节点大小倍数</label>
+                                                <input class="form-control mx-3" id="node_size" name="node_size"
+                                                    type="text" placeholder="输入大于0的数字"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row border border-secondary rounded-lg mt-3 p-3">
+                                        <a class="text-white font-weight-bold" data-toggle="collapse"
+                                            data-parent="#accordion" href="#collapseTwo" aria-expanded="false"
+                                            aria-controls="collapseTwo">
+                                            连线设置
+                                        </a>
+                                        <div id="collapseTwo" class="collapse in">
+                                            <div class="row">
+                                                <label class="text-white font-weight-bold mt-3 px-3" for="link_size"
+                                                    id="link_size_label">连线长短倍数</label>
+                                                <input class="form-control mx-3" id="link_size" name="link_size"
+                                                    type="text" placeholder="输入大于0的数字"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-block btn-success mt-6" id="submit" type="submit"
+                                    onclick="{{warning}}">重新渲染</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SVG BG -->
+                <svg class="position-absolute bottom-0 left-0" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1920 323"
+                    enable-background="new 0 0 1920 323" xml:space="preserve">
+                    <polygon fill="#ffffff" style="fill-opacity: .05;" points="-0.5,322.5 -0.5,121.5 658.3,212.3 ">
+                    </polygon>
+                    <polygon fill="#ffffff" style="fill-opacity: .1;" points="-2,323 1920,323 1920,-1 "></polygon>
+                </svg>
+                <!-- End SVG BG -->
+            </section>
+            <!-- End Promo Section -->
+
+            <section class="col-lg-9">
+                {% if render == "True" %}
+                <iframe class="p-2 left-0" height="100%" width="100%" src="../static/uploads/生成结果.html"></iframe>
+                {% else %}
+                <div class="pt-3" height="100%">
+                    请在左侧面板上传文件。第一次使用，或是文件较大时，您可能需要等待几分钟。
+                </div>
+                {% endif %}
+            </section>
+        </div>
+    </div>
+
+    {% include 'footer.html' %}
+
+    <!-- JS Global Compulsory -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-migrate@3.4.0/dist/jquery-migrate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-unveil@1.3.2/jquery.unveil.js"></script>
+
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@bootcss/www.bootcss.com@1.0.3/dist/assets/js/main.js"></script>
+</body>
+
+</html>

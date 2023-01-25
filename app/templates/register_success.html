@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8">
+    <title>注册成功页面</title>
+    <link href="/static/css/style.css" rel="stylesheet">
+    <script src="/static/js/jquery-3.6.1.min.js" type="text/javascript"></script>
+    <style type="text/css">
+      h2 {text-align: center;}
+      form,button {margin: auto;}
+      span {font-weight: lighter;}
+      </style>
+  </head>
+  <body>
+    <h1 id="title">注册成功！</h1>
+    <p id="description">您是本站的第{{id}}名用户。</p>
+    <h2>用户昵称：<span class="username">{{username}}</span></h2>
+    <h2>用户密码：<span class="password">{{password}}</span></h2>
+    <h2>用户邮箱：<span class="mail"></span></h2>
+    <h2>用户权限：<span class="permission">{{permission}}</span></h2>
+    <form method="get" id="survey-form" action='/登录'>
+      <button type="submit" style="display:block;margin:0 auto">返回登录界面 </button>
+    </form>
+  </body>
+</html>
